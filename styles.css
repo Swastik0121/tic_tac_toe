@@ -1,0 +1,119 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: radial-gradient(circle, #ff7e5f, #feb47b );
+}
+
+
+.nav-container{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #333;
+    color: white;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 80px; /* Adjust spacing between navbar and Tic Tac Toe grid */
+  
+}
+
+
+.grid{
+    margin: 20px;
+}
+
+
+.col{
+    height: 90px;
+    width: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    border: 2px solid black;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.col:hover{
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+}
+
+
+.row{
+    display: flex;
+}
+
+
+.message{
+    display: none;
+    font-size: 40px;
+    font-weight: bold;
+    color: black;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+#restart-btn{
+    display: none;
+    position: absolute;
+    top:81%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    font-size: 10px;
+    font-weight: bold;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#restart-btn:hover{
+    background-color: #218838;
+}
+
+.fade-out {
+    animation: fadeOut 0.5s forwards;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s forwards;
+}
+
+
+@keyframes fadeOut {
+    from { opacity: 1;}
+    to {opacity: 0;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1; }
+}
