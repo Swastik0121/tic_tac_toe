@@ -43,9 +43,31 @@ function handleClick(ele) {
   currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
 }
 
-function restartGame() {
+function showConfirmModal() {
+  return new Promise((resolve) => {
+    const confirmModal = document.getElementById('confirmModal');
+    confirmModal.style.display = 'flex';
+
+    const yesBtn = document.getElementById('confirmYes');
+    const noBtn = document.getElementById('confirmNo');
+
+    yesBtn.onclick = () => {
+      confirmModal.style.display = 'none';
+      resolve(true);
+    };
+
+    noBtn.onclick = () => {
+      confirmModal.style.display = 'none';
+      resolve(false);
+    };
+  });
+}
+
+async function restartGame() {
+  
+  const confirmed = await showConfirmModal();
   // Confirmation from user
-  if (!confirm('Are you sure you want to restart the game?')) {
+  if (!confirmed) {
     return;
   }
 
@@ -68,7 +90,7 @@ function restartGame() {
     document.querySelectorAll('.col').forEach((cell) => (cell.innerText = ''));
 
     grid.classList.remove('fade-out');
-    grid.classList.remove('fade-in');
+    grid.classList.add('fade-in');
 
     grid.addEventListener('animationend', function handler2() {
       grid.removeEventListener('animationend', handler2);
